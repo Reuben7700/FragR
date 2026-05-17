@@ -19,27 +19,20 @@ YEAR: 2026
 COPYRIGHT HOLDER: FragR authors 
 
 ## Workflow Overview 
-Raw Data (Vector/Raster)
-        ↓
-        
-   Preprocessing
-        ↓
-        
-   FragR Functions
-   
-   ┌───────────────┐
-   │ buffer_layer()│ → Buffers around vector features
-   │ frag_index()  │ → Landscape fragmentation metrics
-   │ calc_ndvi()   │ → Vegetation index from raster bands
-   └───────────────┘
-        ↓
-        
- Analysis & Visualization
-        ↓
-        
-   Environmental Insights
+## 🔄 Workflow View
+
+| Step                  | Description                                                                 |
+|-----------------------|-----------------------------------------------------------------------------|
+| Raw Data (Vector/Raster) | Input spatial data such as shapefiles, GeoJSON, or raster imagery.          |
+| Preprocessing         | Clean and prepare data, ensure CRS consistency, and organize inputs.        |
+| FragR Functions       | Apply core functions: <br>• `buffer_layer()` → Buffers around vector features <br>• `fragmentation_index()` → Landscape fragmentation metrics <br>• `calc_ndvi()` → Vegetation index from raster bands |
+| Analysis & Visualization | Plot outputs, compare metrics, and visualize NDVI or buffered areas.       |
+| Environmental Insights | Interpret results for conservation, land‑cover change detection, and monitoring. |
 
 ## Usage
+After installing FragR, you can load the package and start working with vector and raster data.
+
+## 📌 Usage
 
 After installing FragR, you can load the package and start working with vector and raster data.
 
@@ -62,7 +55,6 @@ ndvi <- calc_ndvi(red_band, nir_band)
 plot(ndvi)
 
 ## Function Reference
-
 | Function              | Description                                                                 |
 |-----------------------|-----------------------------------------------------------------------------|
 | `buffer_layer()`      | Creates a buffer around vector features (points, lines, polygons).          |
@@ -71,5 +63,4 @@ plot(ndvi)
 
 ## Installation
 You can install the development version directly from GitHub:
-```r
 devtools::install_github("ReubenTetteh/FragR")
