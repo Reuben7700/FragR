@@ -1,16 +1,21 @@
-Package: FragR
-Type: Package
-Title: What the Package Does (Title Case)
-Version: 0.1.0
-Authors@R: c(
-    person(
-      "Jane", "Doe",
-      email = "jane@example.com",
-      role = c("aut", "cre")
-    )
-  )
-Description: More about what it does (maybe more than one line).
-    Continuation lines should be indented.
-License: What license is it under?
-Encoding: UTF-8
-LazyData: true
+# FragR
+
+**FragR** is an R package developed to support spatial fragmentation analysis and raster data processing in environmental and ecological research. It provides a set of practical tools that simplify geospatial workflows, making it easier for researchers, GIS practitioners, and students to integrate spatial analysis into their projects.
+
+## 🌍 Purpose
+FragR was created to bridge the gap between environmental management needs and reproducible R workflows. It focuses on tasks commonly required in conservation, land‑use planning, and ecological monitoring, offering powerful functions for both vector and raster data.
+
+## ✨ Features
+- **Buffer creation for vector layers**  
+  `buffer_layer()` generates customizable buffers around vector geometries (points, lines, polygons). This is useful for tasks such as defining zones of influence, habitat ranges, or protected area boundaries.
+  
+- **Fragmentation metrics**  
+  `fragmentation_index()` calculates indices that quantify landscape fragmentation, helping assess ecological connectivity and habitat integrity.
+  
+- **Raster utilities**  
+  `calc_ndvi()` and related functions streamline vegetation index calculations, enabling rapid assessment of environmental health from satellite imagery.
+
+## 📖 Installation
+You can install the development version directly from GitHub:
+```r
+devtools::install_github("reuben/FragR")
