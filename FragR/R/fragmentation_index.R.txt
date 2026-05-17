@@ -1,0 +1,11 @@
+#' Calculate Landscape Fragmentation Metrics
+#'
+#' @param file_path Path to land cover vector or raster data.
+#' @return Numeric fragmentation metrics.
+#' @examples
+#' frag_index <- fragmentation_index("landcover.shp")
+#' print(frag_index)
+#' @export
+fragmentation_index <- function(file_path) {
+  # your function code here
+}
