@@ -21,17 +21,22 @@ COPYRIGHT HOLDER: FragR authors
 ## Workflow Overview 
 Raw Data (Vector/Raster)
         ↓
+        
    Preprocessing
         ↓
+        
    FragR Functions
+   
    ┌───────────────┐
    │ buffer_layer()│ → Buffers around vector features
    │ frag_index()  │ → Landscape fragmentation metrics
    │ calc_ndvi()   │ → Vegetation index from raster bands
    └───────────────┘
         ↓
+        
  Analysis & Visualization
         ↓
+        
    Environmental Insights
 
 ## Usage
