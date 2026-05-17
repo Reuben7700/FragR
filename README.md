@@ -15,6 +15,7 @@ install.packages(c("terra", "sf"))
 
 ##  FragR/LICENSE
 YEAR: 2026
+
 COPYRIGHT HOLDER: FragR authors 
 
 ## Workflow Overview 
