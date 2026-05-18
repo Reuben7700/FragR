@@ -9,30 +9,38 @@ FragR is an R package that provides practical tools for spatial fragmentation an
 
 ## Dependencies
 Make sure you have the following packages installed:
+
 install.packages(c("terra", "sf"))
--sf → required for vector operations like st_read() and st_buffer().
--terra → required for raster operations like NDVI calculation.
+
+sf → required for vector operations like st_read() and st_buffer().
+
+terra → required for raster operations like NDVI calculation.
 
 ##  FragR/LICENSE
 YEAR: 2026
 
 COPYRIGHT HOLDER: FragR authors 
 
-## Workflow Overview 
-## 🔄 Workflow View
 
-| Step                  | Description                                                                 |
-|-----------------------|-----------------------------------------------------------------------------|
-| Raw Data (Vector/Raster) | Input spatial data such as shapefiles, GeoJSON, or raster imagery.          |
-| Preprocessing         | Clean and prepare data, ensure CRS consistency, and organize inputs.        |
-| FragR Functions       | Apply core functions: <br>• `buffer_layer()` → Buffers around vector features <br>• `fragmentation_index()` → Landscape fragmentation metrics <br>• `calc_ndvi()` → Vegetation index from raster bands |
-| Analysis & Visualization | Plot outputs, compare metrics, and visualize NDVI or buffered areas.       |
-| Environmental Insights | Interpret results for conservation, land‑cover change detection, and monitoring. |
+## Workflow Overviiew
+
+Raw Data (Vector/Raster)
+
+         ↓
+     Preprocessing
+         ↓
+     FragR Functions
+         ↓   
+    buffer_layer() → Buffers around vector features
+    fragmentation_index() → Landscape fragmentation metrics
+    calc_ndvi() → Vegetation index from raster bands
+         ↓
+    Analysis & Visualization
+         ↓
+    Environmental Insights
+
 
 ## Usage
-After installing FragR, you can load the package and start working with vector and raster data.
-
-## 📌 Usage
 
 After installing FragR, you can load the package and start working with vector and raster data.
 
