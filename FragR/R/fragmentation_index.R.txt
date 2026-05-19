@@ -1,11 +1,33 @@
-#' Calculate Landscape Fragmentation Metrics
+#' Compute Fragmentation Index for Land Cover
 #'
-#' @param file_path Path to land cover vector or raster data.
-#' @return Numeric fragmentation metrics.
+#' @param raster_layer A raster object with binary land cover (1 = forest, 0 = non-forest).
+#' @return Numeric fragmentation index (0 = intact, 1 = highly fragmented).
 #' @examples
-#' frag_index <- fragmentation_index("landcover.shp")
-#' print(frag_index)
+#' lc <- raster::raster(matrix(sample(c(0,1), 100, replace=TRUE), 10, 10))
+#' frag <- fragmentation_index(lc)
+#' print(frag)
+#' plot(lc, main = paste("Fragmentation Index:", round(frag, 2)))
 #' @export
-fragmentation_index <- function(file_path) {
-  # your function code here
+fragmentation_index <- function(raster_layer) {
+  if (!inherits(raster_layer, "RasterLayer")) {
+    stop("Input must be a RasterLayer.")
+  }
+
+  # Identify patches
+  clumps <- raster::clump(raster_layer)
+
+  # Count number of patches
+  n_patches <- length(unique(raster::values(clumps)))
+
+  # Total forest cells
+  forest_cells <- sum(raster::values(raster_layer) == 1, na.rm = TRUE)
+
+  # Fragmentation index = patches / forest cells
+  frag_index <- n_patches / forest_cells
+
+  # Plot
+  plot(raster_layer, main = paste("Fragmentation Index:", round(frag_index, 2)),
+       col = c("lightgrey", "darkgreen"))
+
+  return(frag_index)
 }
