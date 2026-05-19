@@ -1,16 +1,18 @@
 Package: FragR
 Type: Package
-Title: What the Package Does (Title Case)
+Title: Tools for Fragmentation and Raster Analysis
 Version: 0.1.0
-Authors@R: c(
-    person(
-      "Jane", "Doe",
-      email = "jane@example.com",
-      role = c("aut", "cre")
-    )
-  )
-Description: More about what it does (maybe more than one line).
-    Continuation lines should be indented.
-License: What license is it under?
+Authors@R: person("Reuben", "Surname", email = "ruebentetteh000@gmail.com")
+Description: FragR provides functions for spatial analysis of vector and raster data.
+    It includes tools to buffer vector features, compute fragmentation indices
+    for land cover rasters, and calculate vegetation indices such as NDVI.
+    The package is designed for ecological and environmental applications,
+    supporting workflows in forest monitoring, land use planning, and remote sensing.
+License: GPL-3
 Encoding: UTF-8
 LazyData: true
+Imports:
+    sf,
+    raster,
+    terra
+
