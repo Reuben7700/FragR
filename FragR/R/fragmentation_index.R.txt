@@ -1,7 +1,7 @@
 #' Compute Fragmentation Index for Land Cover
 #'
 #' @param raster_layer A raster object with binary land cover (1 = forest, 0 = non-forest).
-#' @return Numeric fragmentation index (0 = intact, 1 = highly fragmented).
+#' @return Numeric fragmentation index (higher = more fragmented).
 #' @examples
 #' lc <- raster::raster(matrix(sample(c(0,1), 100, replace=TRUE), 10, 10))
 #' frag <- fragmentation_index(lc)
@@ -13,21 +13,17 @@ fragmentation_index <- function(raster_layer) {
     stop("Input must be a RasterLayer.")
   }
 
-  # Identify patches
   clumps <- raster::clump(raster_layer)
 
-  # Count number of patches
-  n_patches <- length(unique(raster::values(clumps)))
+  patch_sizes <- table(raster::values(clumps))
 
-  # Total forest cells
-  forest_cells <- sum(raster::values(raster_layer) == 1, na.rm = TRUE)
+  patch_sizes <- patch_sizes[names(patch_sizes) != "NA"]
 
-  # Fragmentation index = patches / forest cells
-  frag_index <- n_patches / forest_cells
+  frag_index <- sd(patch_sizes) / mean(patch_sizes)
 
-  # Plot
-  plot(raster_layer, main = paste("Fragmentation Index:", round(frag_index, 2)),
-       col = c("lightgrey", "darkgreen"))
-
+  plot(clumps, main = paste("Fragmentation Index:", round(frag_index, 2)),
+       col = rainbow(length(unique(raster::values(clumps)))))
+  
   return(frag_index)
 }
+
